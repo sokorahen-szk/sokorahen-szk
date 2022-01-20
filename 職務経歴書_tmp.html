@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>職務経歴書.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<div style="text-align: center; font-size:24px">
+&#x8077;&#x52D9;&#x7D4C;&#x6B74;&#x66F8;
+</div>
+<div style="text-align: right; font-size: 16px;">
+Yuki Suzuki
+</div>
+<h2 id="%E2%96%A0-%E8%81%B7%E5%8B%99%E7%B5%8C%E6%AD%B4%E6%A6%82%E8%A6%81">■ 職務経歴概要</h2>
+<ul>
+<li>Webオープン系設計／システムアーキテクト 2年8ヶ月 (2019/5 ~ 現在）
+<ul>
+<li>受託開発 1年 (2021/1 ~ ）
+<ul>
+<li>開発</li>
+<li>テスト（単体／結合）</li>
+<li>保守</li>
+</ul>
+</li>
+<li>自社開発 1年 7ヶ月 (2019/5 ~ 2020/12）
+<ul>
+<li>設計（DB設計、アーキテクチャー設計、ソフトウェア設計）</li>
+<li>開発</li>
+<li>テスト（単体／結合）</li>
+<li>保守</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>プリセールスSE／ネットワークエンジニア (2018/2 ~ 2019/5）1年3ヶ月
+<ul>
+<li>提案（顧客折衝）</li>
+<li>ネットワーク設計（基本/詳細）</li>
+<li>オンプレ環境構築</li>
+<li>ネットワーク導入</li>
+<li>ネットワーク保守</li>
+<li>デモンストレーション・他社向け新卒勉強会</li>
+</ul>
+</li>
+<li>システムインテグレーター (2016/12 ~ 2018/1）1年2ヶ月
+<ul>
+<li>サーバ保守</li>
+<li>サーバ設計（基本/詳細）</li>
+<li>サーバ構築（セキュリティ・ユーザストレージ周り）</li>
+<li>ネットワーク監視</li>
+</ul>
+</li>
+<li>テクニカルサポート／カスタマーサポート (2014/6 ~ 2016/12）2年5ヶ月
+<br />
+<br /></li>
+</ul>
+<h2 id="%E2%96%A0-%E5%BE%97%E6%84%8F%E3%81%A8%E3%81%99%E3%82%8B%E7%B5%8C%E9%A8%93%E3%83%BB%E5%88%86%E9%87%8E%E3%83%BB%E3%82%B9%E3%82%AD%E3%83%AB">■ 得意とする経験・分野・スキル</h2>
+<ul>
+<li>レガシーコードからモダン化に向けた設計／リファクタリング</li>
+<li>Webアプリだけでなく、CLIツール、業務ツール開発、低レイヤー向け言語での開発</li>
+<li>サーバ保守／設計／構築に加え、ネットワークやオンプレおよびクラウドインフラ周りの提案〜導入工程
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul>
+<h2 id="%E2%96%A0-%E8%81%B7%E5%8B%99%E7%B5%8C%E6%AD%B4">■ 職務経歴</h2>
+<ul>
+<li>
+<p><u>FTL株式会社　2021年01月 ～ 現在</u></p>
+<ul>
+<li>
+<p>事業内容：Webサービスの開発・運営、iOS・Androidアプリ開発</p>
+</li>
+<li>
+<p>従業員数：7人</p>
+<ul>
+<li><u>2021/3 ~ 現在</u></li>
+</ul>
+<p>石油会社のモバイルアプリをGo + gRPC のAPI開発</p>
+<ul>
+<li>
+<p>担当</p>
+<ul>
+<li>技術選定</li>
+<li>開発フェーズ</li>
+<li>単体テスト</li>
+<li>インフラ構築</li>
+</ul>
+</li>
+<li>
+<p>業務内容</p>
+<ol>
+<li>アプリAPI開発（Go + gRPC）</li>
+<li>クーポン・お知らせ配信系バッチ開発</li>
+<li>DI集計バッチ開発</li>
+<li>コードレビュー</li>
+<li>ファイル設計</li>
+<li>アーキテクチャー設計</li>
+</ol>
+</li>
+<li>
+<p>技術スタック</p>
+<ul>
+<li>OS
+<ul>
+<li>CentOS</li>
+</ul>
+</li>
+<li>データベース/キャッシュ
+<ul>
+<li>AWS DynamoDB</li>
+<li>AWS RDS Aurora MySQL</li>
+<li>AWS Redshift</li>
+<li>AWS ElastiCache Redis</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>Go + gRPC</li>
+<li>PHP</li>
+</ul>
+</li>
+<li>フレームワーク
+<ul>
+<li>Flutter</li>
+<li>Laravel</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>kubernetes</li>
+<li>Docker</li>
+<li>CircleCI</li>
+<li>AWS ELB</li>
+<li>AWS Route53</li>
+<li>AWS SNS/SQS</li>
+<li>AWS StepFunctions</li>
+<li>AWS Pinpoint</li>
+<li>AWS Kinesis Firehose</li>
+<li>AWS Lambda</li>
+<li>AWS ECR</li>
+<li>AWS Lambda</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2021/1 ~ 2021/3</u></p>
+<p>某大手デリバリ寿司のJavaアプリケーションサーバOS</p>
+<p>アップデートおよび、オンプレからクラウド移行。</p>
+<ul>
+<li>担当
+<ul>
+<li>開発フェーズ</li>
+<li>単体テスト</li>
+<li>結合テスト</li>
+<li>インフラ構築</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>デリバリ寿司のJava APサーバOSアップデート</li>
+<li>Ansibleインフラのコード化</li>
+<li>ファイルチェックバッチ実装（bash）</li>
+<li>デプロイスクリプト実装（Python）</li>
+<li>バッチ・デプロイスクリプト・インフラコード単体テスト</li>
+<li>インフラ構築（クライアント／APサーバ）</li>
+<li>コードレビュー</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux (CentOS6/CentOS7)</li>
+</ul>
+</li>
+<li>データベース
+<ul>
+<li>MySQL</li>
+<li>DynamoDB</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>Java</li>
+<li>Python</li>
+<li>Bash</li>
+</ul>
+</li>
+<li>フレームワーク
+<ul>
+<li>SpringBoot</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>VPSサーバ</li>
+<li>Docker（ローカル開発環境）</li>
+<li>Ansible</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>株式会社REAS　2019年05月 ～ 2020年12月</u></p>
+<ul>
+<li>事業内容：ライブチャットコンテンツの運営全般</li>
+<li>従業員数：95人
+<ul>
+<li>
+<p><u>2020/7 ~ 2020/12</u></p>
+<p>自社サービスのネイティブアプリ向けAPI開発</p>
+<ul>
+<li>担当
+<ul>
+<li>用件定義</li>
+<li>開発</li>
+<li>単体テスト</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>API開発（Laravel）</li>
+<li>コードレビュー</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux （CentOS）</li>
+</ul>
+</li>
+<li>データベース
+<ul>
+<li>PostgreSQL</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>PHP</li>
+</ul>
+</li>
+<li>フレームワーク
+<ul>
+<li>Laravel</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>AWS</li>
+<li>AWS Codeシリーズ</li>
+<li>AWS ELB</li>
+<li>AWS Route53</li>
+<li>AWS EC2</li>
+<li>Docker</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2020/6 ~ 2020/7</u></p>
+<p>自社プロダクトのCI/CD導入</p>
+<p>静的テスト環境構築・導入試験</p>
+<ul>
+<li>担当
+<ul>
+<li>用件定義</li>
+<li>開発</li>
+<li>単体テスト</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>CI/CD環境構築／試験</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux （CentOS）</li>
+</ul>
+</li>
+<li>データベース
+<ul>
+<li>MySQL</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>PHP</li>
+<li>Bash</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>AWS</li>
+<li>AWS CodeBuild</li>
+<li>AWS CodeDeploy</li>
+<li>AWS CodeCommit</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2020/5 ~ 2020/6</u></p>
+<p>社内銀行情報参照システムのプログラム改修</p>
+<p>レガシーな部分をフレームワーク採用してモダン化</p>
+<ul>
+<li>担当
+<ul>
+<li>用件定義</li>
+<li>開発</li>
+<li>単体テスト</li>
+<li>結合テスト</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>リファクタリング</li>
+<li>現行システムの調査</li>
+<li>全銀APIの導入調査／導入</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux （CentOS）</li>
+</ul>
+</li>
+<li>データベース
+<ul>
+<li>MySQL</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>PHP</li>
+<li>JavaScript</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>AWS</li>
+<li>AWS EC2</li>
+<li>AWS ELB</li>
+<li>AWS Route53</li>
+<li>AWS Codeシリーズ</li>
+<li>Docker</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2020/1 ~ 2020/4</u></p>
+<p>社内CRMとして、サービス利用者の情報収集アプリ開発</p>
+<ul>
+<li>担当
+<ul>
+<li>用件定義</li>
+<li>開発</li>
+<li>単体テスト</li>
+<li>結合テスト</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>API開発</li>
+<li>管理コンソールフロントエンド</li>
+<li>インフラ構築</li>
+<li>単体テスト／結合テスト</li>
+<li>DB設計</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux （CentOS）</li>
+</ul>
+</li>
+<li>データベース
+<ul>
+<li>MySQL</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>PHP</li>
+<li>JavaScript</li>
+<li>Bash</li>
+</ul>
+</li>
+<li>フレームワーク
+<ul>
+<li>Laravel</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>AWS</li>
+<li>AWS EC2</li>
+<li>AWS ELB</li>
+<li>AWS Route53</li>
+<li>AWS Codeシリーズ</li>
+<li>Docker</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2019/8 ~ 2020/1</u></p>
+<p>自社サービスの決済ページリファクタリング</p>
+<p>自社サイト内年末イベントに向けた新機能開発</p>
+<ul>
+<li>担当
+<ul>
+<li>用件定義</li>
+<li>開発</li>
+<li>単体テスト</li>
+<li>結合テスト</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>API開発</li>
+<li>インフラ構築</li>
+<li>単体テスト／結合テスト</li>
+<li>DB設計</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux （CentOS）</li>
+</ul>
+</li>
+<li>データベース
+<ul>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>PHP</li>
+<li>JavaScript</li>
+<li>Bash</li>
+</ul>
+</li>
+<li>フレームワーク
+<ul>
+<li>Laravel</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>AWS</li>
+<li>AWS EC2</li>
+<li>AWS ELB</li>
+<li>AWS Route53</li>
+<li>AWS Codeシリーズ</li>
+<li>Docker</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2019/7 ~ 2019/8</u></p>
+<p>Docker開発環境の設計／構築</p>
+<ul>
+<li>担当
+<ul>
+<li>開発</li>
+<li>単体テスト</li>
+<li>導入</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>既存システムの調査</li>
+<li>開発環境構築</li>
+<li>単体テスト</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux （CentOS）</li>
+</ul>
+</li>
+<li>データベース
+<ul>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>Redis</li>
+<li>Memcache</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>PHP</li>
+<li>JavaScript</li>
+<li>Bash</li>
+</ul>
+</li>
+<li>フレームワーク
+<ul>
+<li>Laravel</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>AWS</li>
+<li>Docker</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2019/6 ~ 2019/7</u></p>
+<p>自社サービスを使用したパートナーに提供</p>
+<p>している管理コンソール（主に所属している</p>
+<p>ライブ配信者のマネジメントをする目的で使用）</p>
+<p>のコードリファクタリング担当。</p>
+<ul>
+<li>担当
+<ul>
+<li>開発</li>
+<li>単体テスト</li>
+<li>結合テスト</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>既存システムの調査</li>
+<li>開発環境構築</li>
+<li>単体テスト</li>
+<li>UIテスト</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux （CentOS）</li>
+<li>Linux （Ubuntu）</li>
+</ul>
+</li>
+<li>データベース
+<ul>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>PHP</li>
+<li>JavaScript</li>
+<li>Python</li>
+</ul>
+</li>
+<li>フレームワーク
+<ul>
+<li>Laravel</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>AWS</li>
+<li>Docker</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2019/6 ~ 2019/7</u></p>
+<p>自社基幹システムと自社サービス</p>
+<p>との連携に使うAPIの改修</p>
+<ul>
+<li>担当
+<ul>
+<li>開発</li>
+<li>単体テスト</li>
+<li>結合テスト</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>既存システムの調査</li>
+<li>単体テスト</li>
+<li>UIテスト</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux （CentOS）</li>
+</ul>
+</li>
+<li>データベース
+<ul>
+<li>MySQL</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>PHP</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>AWS</li>
+<li>Docker</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>アライドテレシス株式会社　2018年02月 ～ 2019年04月</u></p>
+<ul>
+<li>事業内容：ネットワーク関連機器、企画・開発・製造・販売システムインテグレーション</li>
+<li>従業員数：1,700人
+<ul>
+<li>
+<p><u>2018/9 ~ 2019/4</u></p>
+<p>中小企業のネットワークリプレース</p>
+<p>無線サイトサーベイ（WiFiシグナル測定調査）</p>
+<p>石川県某病院のインフラシステム構築</p>
+<ul>
+<li>担当
+<ul>
+<li>要件定義</li>
+<li>基本設計</li>
+<li>詳細設計</li>
+<li>ネットワーク構築</li>
+<li>ネットワーク導入</li>
+<li>保守</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>プリセールス業務</li>
+<li>顧客折衝／要件定義</li>
+<li>設計書作成</li>
+<li>ネットワーク構築／試験</li>
+<li>ネットワーク導入作業</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Windows Server</li>
+<li>Linux</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>Bash</li>
+<li>VBS/VBA</li>
+</ul>
+</li>
+<li>機器
+<ul>
+<li>Yamaha</li>
+<li>AlliedTelesis</li>
+<li>Fortinet</li>
+<li>Dell</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2018/7 ~ 2018/8</u></p>
+<p>お客様先訪問し、設計から構築、導入を担当。</p>
+<p>ターゲットは、工場や医療機関、行政など。</p>
+<ul>
+<li>担当
+<ul>
+<li>ハンズオン／デモンストレーション</li>
+<li>勉強会</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2018/7 ~ 2018/8</u></p>
+<p>パートナー会社向け、新卒や中途エンジニア向けに</p>
+<p>自社主催勉強会の講師を担当。</p>
+<ul>
+<li>担当
+<ul>
+<li>要件定義</li>
+<li>基本設計</li>
+<li>ネットワーク構築</li>
+<li>ネットワーク導入</li>
+<li>保守</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>プリセールス業務</li>
+<li>顧客折衝／要件定義</li>
+<li>設計書作成</li>
+<li>ネットワーク構築／試験</li>
+<li>ネットワーク導入作業</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Windows Server</li>
+</ul>
+</li>
+<li>機器
+<ul>
+<li>Yamaha</li>
+<li>AlliedTelesis</li>
+<li>Cisco</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>株式会社テクノプロ・テクノプロIT社　2016年12月 ～ 2018年02月</u></p>
+<ul>
+<li>事業内容：ビジネスアプリケーション、運用、クラウド技術における技術開発、商品開発</li>
+<li>従業員数：3,697人
+<ul>
+<li>
+<p><u>2017/7 ~ 2018/2</u></p>
+<p>新規プロジェクト参画　DBクラウド基盤構築</p>
+<ul>
+<li>担当
+<ul>
+<li>サーバのセキュリティ設計／構築</li>
+<li>監視設計（Zabbix／F社監視ミドルウェア）</li>
+<li>保守自動化Ansible設計、コーディング</li>
+<li>テスト工程担当</li>
+<li>ネットワークセキュリティ設計</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>基本設計</li>
+<li>詳細設計</li>
+<li>単体テスト</li>
+<li>結合テスト</li>
+<li>サーバ構築／導入</li>
+<li>セキュリティ設計</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux</li>
+<li>Unix</li>
+</ul>
+</li>
+<li>インフラ
+<ul>
+<li>Ansible</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>2016/12 ~ 2017/6</u></p>
+<p>某大手の客先常駐で社内クラウド基盤の保守</p>
+<ul>
+<li>担当
+<ul>
+<li>WindowsServerのパッチ適用</li>
+<li>Hyper-V やVMWare/OVMのパッチ適用</li>
+<li>ジョブ管理・監視設定・トラフィック監視</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>保守</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><u>SCSKサービスウェア株式会社　2014年06月 ～ 2016年11月</u></p>
+<ul>
+<li>事業内容：カスタマサポートアウトソーシング、システムソリューション</li>
+<li>従業員数：1,000人
+<ul>
+<li>
+<p><u>2014/6 ~ 2016/12</u></p>
+<p>コールセンター業務</p>
+<ul>
+<li>担当
+<ul>
+<li>製品の技術サポート</li>
+<li>修理受付、コールセンター業務</li>
+<li>内製業務ツールの開発</li>
+</ul>
+</li>
+<li>業務内容
+<ol>
+<li>電話対応</li>
+<li>一次切り分け</li>
+<li>修理受付</li>
+<li>ツール開発</li>
+</ol>
+</li>
+<li>技術スタック
+<ul>
+<li>OS
+<ul>
+<li>Linux</li>
+<li>Unix</li>
+</ul>
+</li>
+<li>データベース
+<ul>
+<li>Microsoft Access</li>
+</ul>
+</li>
+<li>言語
+<ul>
+<li>VBS/VBA</li>
+<li>ASP.NET</li>
+<li>JavaScript
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E2%96%A0-%E6%89%80%E6%9C%89%E8%B3%87%E6%A0%BC">■ 所有資格</h2>
+<table>
+<thead>
+<tr>
+<th>資格名</th>
+<th>取得日</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通自動車免許</td>
+<td>2012/3</td>
+</tr>
+<tr>
+<td>日本情報処理検定協会　ホームページ作成検定試験1級</td>
+<td>2013/12</td>
+</tr>
+<tr>
+<td>IPA　ITパスポート</td>
+<td>2014/8</td>
+</tr>
+<tr>
+<td>LPI　Certified Linux Administrator (LPIC-1/LinuC1)</td>
+<td>2017/8</td>
+</tr>
+<tr>
+<td>IPA　情報セキュリティマネジメント</td>
+<td>2017/11</td>
+</tr>
+<tr>
+<td>Cisco Certified Network Associate Routing and Switching (CCNA)</td>
+<td>2018/4</td>
+</tr>
+<tr>
+<td>NTT.com Master Advance</td>
+<td>2018/6</td>
+</tr>
+<tr>
+<td>Oracle　Java SE 8 Programmer I（Silver）</td>
+<td>2019/1</td>
+</tr>
+<tr>
+<td>IPA　基本情報技術者試験</td>
+<td>2019/5</td>
+</tr>
+<tr>
+<td>LPI　Certified Linux Administrator (LPIC-2)</td>
+<td>2019/7</td>
+</tr>
+<tr>
+<td>AWS 認定ソリューションアーキテクト – アソシエイト(AWS SAA)</td>
+<td>2020/2</td>
+</tr>
+<tr>
+<td>AWS 認定ディベロッパー - アソシエイト（AWS DAV）</td>
+<td>2021/9</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
