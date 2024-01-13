@@ -1,0 +1,10 @@
+{
+    "resume": {
+        "input_file": "職務経歴書.md",
+        "output_file": "outputs/職務経歴書.pdf",
+        "html_template_file": "src/templates/resume_output_template.html"
+    },
+    "personal_history": {
+
+    }
+}
