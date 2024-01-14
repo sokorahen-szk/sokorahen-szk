@@ -1,10 +1,11 @@
 {
     "resume": {
         "input_file": "職務経歴書.md",
-        "output_file": "outputs/職務経歴書.pdf",
-        "html_template_file": "src/templates/resume_output_template.html"
+        "output_file": "outputs/職務経歴書.pdf"
     },
     "personal_history": {
-
+        "spredsheet_id": "1Grd94MsMP2wR8SRK-TpEJudt0yDj5BXpzTIAkdW0HYE",
+        "input_file": "履歴書.xlsx",
+        "output_file": "outputs/履歴書.pdf"
     }
 }

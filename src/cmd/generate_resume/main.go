@@ -1,32 +1,77 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	"io/ioutil"
 	"log"
-	"os/exec"
-	"strings"
+	"os"
 
-	bf "github.com/russross/blackfriday/v2"
 	"github.com/sokorahen-szk/sokorahen-szk/cmd"
+	"github.com/sokorahen-szk/sokorahen-szk/services"
 )
 
 type config struct {
-	Resume resume `json:"resume"`
+	Resume          resume          `json:"resume"`
+	PersonalHistory personalHistory `json:"personal_history"`
 }
 
 type resume struct {
-	InputFile        string `json:"input_file"`
-	OutputFile       string `json:"output_file"`
-	HTMLTemplateFile string `json:"html_template_file"`
+	InputFile  string `json:"input_file"`
+	OutputFile string `json:"output_file"`
 }
 
-const tmpHTMLFileName = "tmp.html"
+type personalHistory struct {
+	SpredSheetID string `json:"spredsheet_id"`
+	InputFile    string `json:"input_file"`
+	OutputFile   string `json:"output_file"`
+}
 
 func main() {
-	generateResume(readConfig())
+	cfg := readConfig()
+	jsonCredentials := os.Getenv("GOOGLE_SECRET_CREDENTIALS")
+	// 職務経歴書 -> ./outputs
+	generateResume(cfg)
+	//履歴書 -> ./outputs
+	generatePersonalHistory(cfg, jsonCredentials)
 }
 
+// generateResume() 職務経歴書を生成する
+func generateResume(cfg config) {
+	fmt.Println("generate resume Start...")
+
+	convertPDFService := services.NewConvertPDFService()
+	err := convertPDFService.ConvertMarkdownToPDF(cfg.Resume.InputFile, cfg.Resume.OutputFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("generate resume Done!...")
+}
+
+// generatePersonalHistory() 履歴書を生成する
+func generatePersonalHistory(cfg config, jsonCredentials string) {
+	fmt.Println("generate personal history start...")
+
+	spredsheetDownloadService := services.NewSpredSheetDownloadService(jsonCredentials)
+	err := spredsheetDownloadService.Exec(
+		context.Background(),
+		cfg.PersonalHistory.SpredSheetID,
+		cfg.PersonalHistory.InputFile,
+	)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	convertPDFService := services.NewConvertPDFService()
+	err = convertPDFService.ConvertXLSXToPDF(cfg.PersonalHistory.InputFile, cfg.PersonalHistory.OutputFile)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println("generate personal history Done!...")
+}
+
+// readConfig() コンフィグを読み込む
 func readConfig() config {
 	cmdArg := cmd.NewCmdArg()
 	if !cmdArg.Validate([]string{"config"}) {
@@ -42,28 +87,4 @@ func readConfig() config {
 	cmd.ReadConfig(*configFilePath, &config)
 
 	return config
-}
-
-func generateResume(config config) error {
-	mdData, err := ioutil.ReadFile(config.Resume.InputFile)
-	if err != nil {
-		return err
-	}
-
-	markdown_html := bf.Run(mdData)
-	htmlTemplate, _ := ioutil.ReadFile(config.Resume.HTMLTemplateFile)
-	html := strings.Replace(string(htmlTemplate), "#body#", string(markdown_html), 1)
-
-	err = ioutil.WriteFile(tmpHTMLFileName, []byte(html), 0644)
-	if err != nil {
-		return err
-	}
-
-	cmd := exec.Command("wkhtmltopdf", tmpHTMLFileName, config.Resume.OutputFile)
-	stdoutStderr, err := cmd.CombinedOutput()
-	if err != nil {
-		return fmt.Errorf("stdoutStderr: %+v, failed to generate pdf err: %+v", stdoutStderr, err)
-	}
-
-	return nil
 }

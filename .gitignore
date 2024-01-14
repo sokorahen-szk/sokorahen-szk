@@ -1,5 +1,8 @@
 *.pdf
+*.html
+*.xlsx
+
 .DS_Store
-*tmp.html
+
 /generate_resume
 /generate_personal_history
