@@ -3,7 +3,7 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     env:
-      EXPIRES_SECONDS: 60
+      EXPIRES_SECONDS: 172800 # 2日間
       RESUME_PDF: 職務経歴書.pdf
       PERSONAL_HISTORY_PDF: 履歴書.pdf
       GO_VERSION: 1.19
@@ -56,7 +56,7 @@ jobs:
       - name: Send Signed URL Of Resume To Discord
         run: |
           signed_url=(`aws s3 presign s3://${{secrets.AWS_S3_BUCKET_DATA_STORE}}/$RESUME_PDF --expires-in $EXPIRES_SECONDS`)
-          expires_date=(`date -d "+${EXPIRES_SECONDS} seconds" '+%Y-%m-%d %H:%M:%S'`)
+          expires_date=(`date -d "+${EXPIRES_SECONDS} seconds" "+%Y-%m-%d"`)
 
           curl -X POST -H "Content-Type: application/json" -d "
           {
@@ -70,7 +70,7 @@ jobs:
       - name: Send Signed URL Of Personal History To Discord
         run: |
           signed_url=(`aws s3 presign s3://${{secrets.AWS_S3_BUCKET_DATA_STORE}}/$PERSONAL_HISTORY_PDF --expires-in $EXPIRES_SECONDS`)
-          expires_date=(`date -d "+${EXPIRES_SECONDS} seconds" '+%Y-%m-%d %H:%M:%S'`)
+          expires_date=(`date -d "+${EXPIRES_SECONDS} seconds" "+%Y-%m-%d"`)
 
           curl -X POST -H "Content-Type: application/json" -d "
           {
