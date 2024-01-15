@@ -6,17 +6,33 @@ jobs:
       EXPIRES_SECONDS: 60
       RESUME_PDF: 職務経歴書.pdf
       PERSONAL_HISTORY_PDF: 履歴書.pdf
+      GO_VERSION: 1.19
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Application
+      - name: Install aws-cli
         run: |
-          apt-get update && apt-get install -y curl unzip sudo make
-          curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" \
-            -o "awscliv2.zip" \
-            && unzip awscliv2.zip \
-            && sudo ./aws/install
+          if ! which aws > /dev/null; then
+            apt-get update && apt-get install -y curl unzip sudo make
+            curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" \
+              -o "awscliv2.zip" \
+              && unzip awscliv2.zip \
+              && sudo ./aws/install
+          fi
+
+      - name: Install wkhtmltopdf
+        run: |
+          sudo apt-get install -y wkhtmltopdf
+
+      - name: Install soffice
+        run: |
+          sudo apt-get install -y libreoffice
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: $GO_VERSION
 
       - name: Setup AWS Configure
         uses: aws-actions/configure-aws-credentials@v1
