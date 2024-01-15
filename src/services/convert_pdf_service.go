@@ -53,7 +53,18 @@ func (s convertPDFService) convertMarkdownToHTML(inputFileName string) error {
 	}
 
 	markdownHTML := bf.Run(mdData)
-	html := fmt.Sprintf(`<html><head><meta charset="UTF-8"></head><body>%s</body></html>`, string(markdownHTML))
+
+	html := fmt.Sprintf(`
+        <html>
+            <head>
+                <meta charset="UTF-8">
+                <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+                <style>
+                    body { font-family: 'Noto Sans JP', sans-serif; }
+                </style>
+            </head>
+            <body>%s</body>
+        </html>`, string(markdownHTML))
 	err = ioutil.WriteFile(tmpHTMLFileName, []byte(html), convertPDFServiceDefaultFilePermission)
 	if err != nil {
 		return err
