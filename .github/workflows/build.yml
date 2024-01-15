@@ -56,7 +56,7 @@ jobs:
       - name: Send Signed URL Of Resume To Discord
         run: |
           signed_url=(`aws s3 presign s3://${{secrets.AWS_S3_BUCKET_DATA_STORE}}/$RESUME_PDF --expires-in $EXPIRES_SECONDS`)
-          expires_date=(`date -v+${EXPIRES_SECONDS}S "+%Y-%m-%d %H:%M:%S"`)
+          expires_date=(`date -d "+${EXPIRES_SECONDS} seconds" "+%Y-%m-%d %H:%M:%S"`)
 
           curl -X POST -H "Content-Type: application/json" -d "
           {
@@ -70,7 +70,7 @@ jobs:
       - name: Send Signed URL Of Personal History To Discord
         run: |
           signed_url=(`aws s3 presign s3://${{secrets.AWS_S3_BUCKET_DATA_STORE}}/$PERSONAL_HISTORY_PDF --expires-in $EXPIRES_SECONDS`)
-          expires_date=(`date -v+${EXPIRES_SECONDS}S "+%Y-%m-%d %H:%M:%S"`)
+          expires_date=(`date -d "+${EXPIRES_SECONDS} seconds" "+%Y-%m-%d %H:%M:%S"`)
 
           curl -X POST -H "Content-Type: application/json" -d "
           {
