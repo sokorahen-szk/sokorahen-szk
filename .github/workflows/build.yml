@@ -7,7 +7,6 @@ jobs:
       RESUME_PDF: 職務経歴書.pdf
       PERSONAL_HISTORY_PDF: 履歴書.pdf
       GO_VERSION: 1.19
-      GOOGLE_SECRET_CREDENTIALS: ${{ secrets.GOOGLE_SECRET_CREDENTIALS }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -47,6 +46,8 @@ jobs:
 
       - name: Execute General Resume
         run: ./generate_resume config=config.json
+        env:
+          GOOGLE_SECRET_CREDENTIALS: ${{ secrets.GOOGLE_SECRET_CREDENTIALS }}
 
       - name: Upload Resume To S3
         run: aws s3 cp ./outputs/$RESUME_PDF s3://${{secrets.AWS_S3_BUCKET_DATA_STORE}}/
@@ -58,5 +59,18 @@ jobs:
           curl -X POST -H "Content-Type: application/json" -d "
           {
               \"content\": \"$RESUME_PDF:\n$signed_url\"
+          }
+          " ${{secrets.DISCORD_WEBHOOK_URL}}
+
+      - name: Upload Personal History To S3
+        run: aws s3 cp ./outputs/$PERSONAL_HISTORY_PDF s3://${{secrets.AWS_S3_BUCKET_DATA_STORE}}/
+
+      - name: Send Signed URL Of Personal History To Discord
+        run: |
+          signed_url=(`aws s3 presign s3://${{secrets.AWS_S3_BUCKET_DATA_STORE}}/$PERSONAL_HISTORY_PDF --expires-in $EXPIRES_SECONDS`)
+
+          curl -X POST -H "Content-Type: application/json" -d "
+          {
+              \"content\": \"$PERSONAL_HISTORY_PDF:\n$signed_url\"
           }
           " ${{secrets.DISCORD_WEBHOOK_URL}}
