@@ -3,6 +3,7 @@
 *.xlsx
 
 .DS_Store
+.env
 
 /generate_resume
 /generate_personal_history
