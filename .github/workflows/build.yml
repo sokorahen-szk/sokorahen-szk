@@ -7,6 +7,7 @@ jobs:
       RESUME_PDF: 職務経歴書.pdf
       PERSONAL_HISTORY_PDF: 履歴書.pdf
       GO_VERSION: 1.19
+      GOOGLE_SECRET_CREDENTIALS: ${{ secrets.GOOGLE_SECRET_CREDENTIALS }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
