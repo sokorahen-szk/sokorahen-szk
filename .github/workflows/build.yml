@@ -58,10 +58,10 @@ jobs:
         env:
           GOOGLE_SECRET_CREDENTIALS: ${{ secrets.GOOGLE_SECRET_CREDENTIALS }}
 
-      - name: Remove PDF pages
+      - name: Remove PDF 2 pages and beyond
         run: |
-          pdftk ./outputs/$RESUME_PDF cat 1 output ./outputs/tmp_$RESUME_PDF
-          mv -f ./outputs/tmp_$RESUME_PDF ./outputs/$RESUME_PDF
+          pdftk ./outputs/$PERSONAL_HISTORY_PDF cat 1 output ./outputs/tmp_$PERSONAL_HISTORY_PDF
+          mv -f ./outputs/tmp_$PERSONAL_HISTORY_PDF ./outputs/$PERSONAL_HISTORY_PDF
 
       - name: Upload Resume To S3
         run: aws s3 cp ./outputs/$RESUME_PDF s3://${{secrets.AWS_S3_BUCKET_DATA_STORE}}/
