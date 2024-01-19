@@ -6,7 +6,7 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     env:
-      EXPIRES_SECONDS: 172800 # 2日間
+      EXPIRES_SECONDS: 259200 # 3日間
       RESUME_PDF: 職務経歴書.pdf
       PERSONAL_HISTORY_PDF: 履歴書.pdf
       GO_VERSION: 1.19
