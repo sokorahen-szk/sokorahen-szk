@@ -36,7 +36,9 @@ jobs:
             fonts-noto-cjk
 
       - name: Install pdftk
-        run: sudo apt-get install -y pdftk-java
+        run: |
+          sudo apt-get install -y pdftk-java
+          sudo ln -s /usr/bin/pdftk-java /usr/bin/pdftk
 
       - name: Setup Go
         uses: actions/setup-go@v2
