@@ -1,4 +1,7 @@
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -23,12 +26,17 @@ jobs:
           fi
 
       - name: Install wkhtmltopdf
-        run: |
-          sudo apt-get install -y wkhtmltopdf
+        run: sudo apt-get install -y wkhtmltopdf
 
       - name: Install soffice
         run: |
-          sudo apt-get install -y libreoffice libreoffice-l10n-ja fonts-noto-cjk
+          sudo apt-get install -y \
+            libreoffice \
+            libreoffice-l10n-ja \
+            fonts-noto-cjk
+
+      - name: Install pdftk
+        run: sudo apt-get install -y pdftk-java
 
       - name: Setup Go
         uses: actions/setup-go@v2
@@ -49,6 +57,11 @@ jobs:
         run: ./generate_resume config=config.json
         env:
           GOOGLE_SECRET_CREDENTIALS: ${{ secrets.GOOGLE_SECRET_CREDENTIALS }}
+
+      - name: Remove PDF pages
+        run: |
+          pdftk-java ./outputs/$RESUME_PDF cat 1 output ./outputs/tmp_$RESUME_PDF
+          mv -f ./outputs/tmp_$RESUME_PDF ./outputs/$RESUME_PDF
 
       - name: Upload Resume To S3
         run: aws s3 cp ./outputs/$RESUME_PDF s3://${{secrets.AWS_S3_BUCKET_DATA_STORE}}/
