@@ -62,7 +62,7 @@ jobs:
 
       - name: Remove PDF pages
         run: |
-          pdftk-java ./outputs/$RESUME_PDF cat 1 output ./outputs/tmp_$RESUME_PDF
+          pdftk ./outputs/$RESUME_PDF cat 1 output ./outputs/tmp_$RESUME_PDF
           mv -f ./outputs/tmp_$RESUME_PDF ./outputs/$RESUME_PDF
 
       - name: Upload Resume To S3
