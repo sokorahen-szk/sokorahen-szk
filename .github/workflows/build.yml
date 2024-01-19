@@ -35,6 +35,9 @@ jobs:
             libreoffice-l10n-ja \
             fonts-noto-cjk
 
+      - name: Install pdftk
+        run: sudo apt-get install -y pdftk-java
+
       - name: Setup Go
         uses: actions/setup-go@v2
         with:
