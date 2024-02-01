@@ -3,7 +3,7 @@ package services
 import (
 	"fmt"
 	"io/fs"
-	"io/ioutil"
+	"os"
 	"os/exec"
 	"path/filepath"
 
@@ -27,7 +27,7 @@ func (s convertPDFService) ConvertMarkdownToPDF(inputFileName string, outputFile
 		return err
 	}
 
-	cmd := exec.Command("wkhtmltopdf", tmpHTMLFileName, outputFileName)
+	cmd := exec.Command("wkhtmltopdf", "--enable-local-file-access", "--print-media-type", tmpHTMLFileName, outputFileName)
 	stdoutStderr, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("stdoutStderr: %+v, failed to generate pdf err: %+v", stdoutStderr, err)
@@ -47,7 +47,7 @@ func (s convertPDFService) ConvertXLSXToPDF(inputFileName string, outputFileName
 }
 
 func (s convertPDFService) convertMarkdownToHTML(inputFileName string) error {
-	mdData, err := ioutil.ReadFile(inputFileName)
+	mdData, err := os.ReadFile(inputFileName)
 	if err != nil {
 		return err
 	}
@@ -57,15 +57,12 @@ func (s convertPDFService) convertMarkdownToHTML(inputFileName string) error {
 	html := fmt.Sprintf(`
         <html>
             <head>
-                <meta charset="UTF-8">
-                <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-                <style>
-                    body { font-family: 'Noto Sans JP', sans-serif; }
-                </style>
+                <meta charset="UTF-8" />
+				<link href="./src/files/style.css" rel="stylesheet" />
             </head>
             <body>%s</body>
         </html>`, string(markdownHTML))
-	err = ioutil.WriteFile(tmpHTMLFileName, []byte(html), convertPDFServiceDefaultFilePermission)
+	err = os.WriteFile(tmpHTMLFileName, []byte(html), convertPDFServiceDefaultFilePermission)
 	if err != nil {
 		return err
 	}
