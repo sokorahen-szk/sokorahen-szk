@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"html/template"
 
 	bf "github.com/russross/blackfriday/v2"
 )
@@ -53,16 +54,31 @@ func (s convertPDFService) convertMarkdownToHTML(inputFileName string) error {
 	}
 
 	markdownHTML := bf.Run(mdData)
-
-	html := fmt.Sprintf(`
+	tmpl := template.Must(template.New("htmlTemplate").Parse(`
         <html>
             <head>
                 <meta charset="UTF-8" />
 				<link href="./src/files/style.css" rel="stylesheet" />
             </head>
-            <body>%s</body>
-        </html>`, string(markdownHTML))
-	err = os.WriteFile(tmpHTMLFileName, []byte(html), convertPDFServiceDefaultFilePermission)
+            <body>
+				{{.Content}}
+			</body>
+        </html>
+		`))
+
+	data := struct {
+		Content template.HTML
+	}{
+		Content: template.HTML(markdownHTML),
+	}
+
+	file, err := os.Create(tmpHTMLFileName)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	err = tmpl.Execute(file, data)
 	if err != nil {
 		return err
 	}
